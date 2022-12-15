@@ -2,11 +2,11 @@
 // @name           gmail basic enhancements
 // @namespace      camelsoft
 // @description    Extended labels and check all messages
-// @include        https://mail.google.com/mail/u/0/h/*
+// @include        https://mail.google.com/mail/u/*/h/*
 // @icon           https://ssl.gstatic.com/ui/v1/icons/mail/images/favicon5.ico
 // @downloadURL    https://github.com/acavalin/tp_home/raw/main/gmail-basic.user.js
 // @require        https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js
-// @version        1.0.4
+// @version        1.0.5
 // @grant          none
 // @license        GPLv3
 // ==/UserScript==
