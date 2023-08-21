@@ -6,7 +6,7 @@
 // @icon           https://ssl.gstatic.com/ui/v1/icons/mail/images/favicon5.ico
 // @downloadURL    https://github.com/acavalin/tp_home/raw/main/gmail-basic.user.js
 // @require        https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js
-// @version        1.0.5
+// @version        1.0.6
 // @grant          none
 // @license        GPLv3
 // ==/UserScript==
@@ -72,9 +72,6 @@ function shorten_sidebar_links () {
     children().first().html(label + decodeURIComponent(path_element) + '&nbsp;' + unread);
 }//shorten_sidebar_links
 
-// stop sidebar movement after labels resize
-$('body > table:last td:first').css('width', '12rem');
-
 // extend labels on "More actions..." combobox
 $('select[name=tact] option[value^=ac_]').each(shorten_combobox_options);
 $('select[name=tact] option[value^=rc_]').each(shorten_combobox_options);
@@ -100,7 +97,11 @@ $('input[type=checkbox][name=toggle_all]').click(function () {
   });
 });
 
-// remove label from emails rows
-$('form[name=f] span.ts > font:first-child').remove();
+// emails rows: hide label and show it as a title
+$('form[name=f] span.ts > font:first-child').each(function () {
+  var lbl = $(this);
+  lbl.parent().parent().attr('title', lbl.text());
+  lbl.remove();
+});
 // -----------------------------------------------------------------------------
 });})(jQuery);
